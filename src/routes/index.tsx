@@ -26,7 +26,6 @@ function App() {
           <>
             {
               data.map((pokemon, index) => {
-                console.log('key', index, pokemon.uri)
                 return <RanchPokemon 
                   key={index}
                   numb={index}
