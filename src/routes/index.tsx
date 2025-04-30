@@ -28,7 +28,6 @@ function App() {
               data.map((pokemon, index) => {
                 return <RanchPokemon 
                   key={index}
-                  numb={index}
                   pokemon={pokemon}
                   src={`/pokemon_hq/${pokemon.uri}.png`}
                   />
