@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 
 export default function Header() {
   return (
-    <nav  className="flex flex-row gap-4 px-4 h-[80px] font-bold text-4xl bg-sky-900 text-white items-center">
+    <nav  className="flex flex-row gap-4 px-4 h-[80px] font-bold text-2xl md:text-4xl bg-sky-900 text-white items-center">
       <Link
         to="/"
         className={`hover:text-green-300`}

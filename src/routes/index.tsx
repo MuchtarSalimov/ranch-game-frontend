@@ -12,9 +12,10 @@ export const Route = createFileRoute('/')({
 
 function App() {
   const [width, height] = useWindowSize();
-  const directionClass = height > width ? `h-[85vh] w-[85vw]` : `h-[80vh] w-[80vw]`;  const { status, data, error, isFetching } = usePokeBox()
+  const directionClass = height > width ? `h-[85vh] w-[85vw]` : `h-[80vh] w-[80vw]`;
+  // { status, data, error, isFetching } 
+  const { status, data, error } = usePokeBox()
   
-  console.log(status, data, error, isFetching);
   return (
     <div className="h-[calc(100vh-80px)] flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)] text-center">
       <div className={`${directionClass} bg-[url(/grassy_field.jpg)] brightness-90 bg-cover relative`}>

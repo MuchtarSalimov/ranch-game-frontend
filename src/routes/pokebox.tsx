@@ -16,11 +16,12 @@ function PokeBox() {
   // const directionClass = height > width ? `h-auto w-[85vw]` : `h-auto w-[80vw]`;
   const directionClass = `w-[85vw]`;
   // const queryClient = useQueryClient()
-  const { status, data, error, isFetching } = usePokeBox()
-  console.log(isFetching);
+
+  // { status, data, error, isFetching }
+  const { status, data, error } = usePokeBox()
   return (
     <div className="min-h-[calc(screen-80px)] flex flex-col items-center py-[calc(2.5%+50px)] text-[calc(10px+2vmin)] text-center">
-      <div className={`${directionClass} bg-[${theme.palette.primary.main}] grid grid-cols-[repeat(auto-fill,450px)] gap-12 justify-evenly`}>
+      <div className={`${directionClass} bg-[${theme.palette.primary.main}] grid grid-cols-[repeat(auto-fill,450px)] gap-16 justify-evenly`}>
         { status === 'pending' ? (
           'Loading...'
           ) : status === 'error' ? (

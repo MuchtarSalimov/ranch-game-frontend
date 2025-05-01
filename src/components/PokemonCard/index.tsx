@@ -13,13 +13,13 @@ interface PokemonCardProps {
 
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
-    <div className="magic-card">
+    <div className="magic-card max-w-[80vw]">
       <Card sx={{
           bgcolor: '#191c29',
           width: 400,
         }}>
         <CardMedia
-          sx={{ height: 400 }}
+          sx={{ height: 400, width: '100%'}}
           image={`/pokemon_hq/${pokemon.uri}.png`}
         />
         <CardContent>
