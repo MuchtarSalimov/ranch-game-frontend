@@ -3,40 +3,41 @@ import { useEffect, useState } from 'react';
 import type { Pokemon } from '@/types/pokemon';
 import { useWindowSize } from '@/hooks.tsx/useWindowSize';
 import { WildPokemon } from '@/components/WildPokemon.tsx';
-import { usePokeBox } from '@/services.ts/pokemonService';
+import { usePokeBallCount, usePokeBox } from '@/services.ts/pokemonService';
 import { AvailableBalls } from '@/components/AvailableBalls.tsx';
 
 export const Route = createFileRoute('/wilderness')({
   component: Wilderness,
 })
 
-const verticalAlign = `justify-evenly items-center align-center`
-const horizontalAlign = `justify-evenly items-end align-center`
+const verticalClass =   `relative h-[calc(100vh-80px)] bg-[url(/forest.jpg)] bg-cover brightness-90 justify-evenly flex flex-col items-center`
+const horizontalClass = `relative h-[calc(100vh-80px)] bg-[url(/forest.jpg)] bg-cover brightness-90 justify-evenly flex flex-row items-end`
 
 function Wilderness() {
   const [width, height] = useWindowSize();
-  const [directionGrid, setDirectionGrid] = useState(height > width ? `flex-col ${verticalAlign}` : `flex-row ${horizontalAlign}`)
+  const [orientationBasedClass, setOrientationBasedClass] = useState((height > 1.3*width) ? verticalClass : horizontalClass)
+
+  const pokeBallCountQuery = usePokeBallCount()
 
   useEffect(() => {
-    setDirectionGrid(height > 1.3*width ? `flex-col ${verticalAlign}` : `flex-row ${horizontalAlign}`)
+    setOrientationBasedClass((height > 1.3*width) ? verticalClass : horizontalClass)
   }, [width, height])
   
   // temp lines for data visualization while mocking this up
   // { status, data, error, isFetching }
-  const { data } = usePokeBox()
-  // temp lines for
+  const pokeBoxQuery = usePokeBox()
+  // temp lines end
 
   return (
-    <div className="h-[calc(100vh-80px)] flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)] text-center relative">
-      <div className={`h-[80vh] w-[80vw] bg-[url(/forest.jpg)] brightness-90 bg-cover flex ${directionGrid} gap-16 p-[5%]`}>
-        {data && 
-          data.slice(0,3).map((pokemon: Pokemon, index: number)=>{
-            return <WildPokemon key={index} className={`basis-auto max-w-[45%]`} pokemon={pokemon}/>
-          })
-        }
-      </div>
-      <AvailableBalls/>
+    <div className={orientationBasedClass}>
+      { pokeBoxQuery.data && 
+        // temp - swap out this part for real data
+        pokeBoxQuery.data.slice(3,6)
+        .map((pokemon: Pokemon, index: number)=>{
+          return <WildPokemon key={index} pokemon={pokemon} availableBalls={pokeBallCountQuery.data}/>
+        })
+      }
+      <AvailableBalls ballCount={pokeBallCountQuery.data} />
     </div>
   )
-
 }

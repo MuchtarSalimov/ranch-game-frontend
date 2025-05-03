@@ -1,8 +1,5 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import type { Pokemon } from '../../types/pokemon';
 import './style.css';
@@ -13,29 +10,31 @@ interface PokemonCardProps {
 
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
-    <div className="magic-card max-w-[80vw]">
+    <div className="magic-card max-w-[250px] max-h-[340px] text-center">
       <Card sx={{
+          boxShadow: 'none',
           bgcolor: '#191c29',
-          width: 400,
         }}>
         <CardMedia
-          sx={{ height: 400, width: '100%'}}
+          component="img"
+          sx={{ height: '250', width: '250' }}
           image={`/pokemon_hq/${pokemon.uri}.png`}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h3" component="div" color='#bbb'>
-            {pokemon.nickname ? pokemon.nickname : pokemon.species}
+        <div className={'mt-4'}>
+          <Typography component="div" color='#bbb'>
+            {pokemon.nickname ? pokemon.nickname : null}
           </Typography>
-          <Typography variant="h5" sx={{ color: '#bbb' }} >
+          <Typography sx={{ color: '#bbb' }} >
             <ul>
               <li>{pokemon.species}</li>
               <li>level: {pokemon.level}</li>
             </ul>
           </Typography>
-        </CardContent>
-        <CardActions>
-          <Button target="_blank" href={`https://bulbapedia.bulbagarden.net/wiki/${pokemon.species}_(Pok%C3%A9mon)`} size="small">Learn More</Button>
-        </CardActions>
+        </div>
+
+       {/* <CardActions>
+           <Button className='w-[20%] text-lg'target="_blank" href={`https://bulbapedia.bulbagarden.net/wiki/${pokemon.species}_(Pok%C3%A9mon)`}>More</Button> 
+        </CardActions>*/}
       </Card>
     </div>
 

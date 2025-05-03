@@ -1,19 +1,15 @@
-import { usePokeBallCount } from "@/services.ts/pokemonService";
-// import type {PropsWithChildren} from "react";
+import { Pokeball } from "./PokeBall";
+import type {PropsWithChildren} from "react";
 
-// interface AvailableBallsProps extends PropsWithChildren {
-// }
+interface AvailableBallsProps extends PropsWithChildren {
+  ballCount: number | undefined;
+}
 
-
-export function AvailableBalls() {
-  // { status, data, error, isFetching } 
-  const { data } = usePokeBallCount()
-
+// display icons in the corner for each available pokeball
+export function AvailableBalls({ ballCount }: AvailableBallsProps) {
   return (
-    <div className={`absolute top-[10%] right-[12%] flex  gap-4 items-start`}>
-      {data && [...Array(data)].map((_item, index)=> {
-          return <img key={index} title="pokeballs regenerate over time -  max 3" className={`h-[50px] sm:h-[75px] xl:h-[120px]`} src={`/pokeball.png`}></img>
-      })}
+    <div className={`absolute top-0 right-0 p-4 flex gap-4 items-start`}>
+      { ballCount && [...Array(ballCount)].map((_item, index)=> <Pokeball key={index}/>)}
     </div>
   )
 }
