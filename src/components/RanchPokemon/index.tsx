@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 import { nudge } from './movement';
 import type { Pokemon } from '@/types/pokemon';
 import './style.css'
-import { useWindowSize } from '@/hooks.tsx/useWindowSize';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface RanchPokemonProps {
   src: string;

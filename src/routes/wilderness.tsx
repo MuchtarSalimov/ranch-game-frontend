@@ -1,13 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react';
 import type { Pokemon } from '@/types/pokemon';
-import { useWindowSize } from '@/hooks.tsx/useWindowSize';
-import { WildPokemon } from '@/components/WildPokemon.tsx';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { WildPokemon } from '@/components/WildPokemon';
 import { usePokeBallCount, usePokeBox } from '@/services.ts/pokemonService';
 import { AvailableBalls } from '@/components/AvailableBalls.tsx';
 
 export const Route = createFileRoute('/wilderness')({
-  component: Wilderness,
+  component: () =>  <Wilderness />,
 })
 
 const verticalClass =   `relative h-[calc(100vh-80px)] bg-[url(/forest.jpg)] bg-cover brightness-90 justify-evenly flex flex-col items-center`

@@ -6,7 +6,7 @@
     "prettier.config.js",
     "vite.config.js",
     "tailwind.config.js"
-  ],
+, "src/components/WildPokemon", "src/components/RanchPokemon", "src/hooks"  ],
 
   "compilerOptions": {
     "target": "ES2022",

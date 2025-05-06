@@ -24,11 +24,11 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
           <Typography component="div" color='#bbb'>
             {pokemon.nickname ? pokemon.nickname : null}
           </Typography>
-          <Typography sx={{ color: '#bbb' }} >
-            <ul>
-              <li>{pokemon.species}</li>
-              <li>level: {pokemon.level}</li>
-            </ul>
+          <Typography component="div" color='#bbb'>
+          {pokemon.species}
+          </Typography>
+          <Typography component="div" color='#bbb'>
+          level {pokemon.level}
           </Typography>
         </div>
 
