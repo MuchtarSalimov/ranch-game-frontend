@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { Pokemon } from '@/types/pokemon';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { WildPokemon } from '@/components/WildPokemon';
-import { usePokeBallCount, usePokeBox } from '@/services.ts/pokemonService';
+import { usePokeBallCount, useWildPokemon } from '@/services.ts/pokemonService';
 import { AvailableBalls } from '@/components/AvailableBalls.tsx';
 
 export const Route = createFileRoute('/wilderness')({
@@ -23,16 +23,13 @@ function Wilderness() {
     setOrientationBasedClass((height > 1.3*width) ? verticalClass : horizontalClass)
   }, [width, height])
   
-  // temp lines for data visualization while mocking this up
-  // { status, data, error, isFetching }
-  const pokeBoxQuery = usePokeBox()
-  // temp lines end
+  const wildPokemonQuery = useWildPokemon()
 
   return (
     <div className={orientationBasedClass}>
-      { pokeBoxQuery.data && 
+      { wildPokemonQuery.data && 
         // temp - swap out this part for real data
-        pokeBoxQuery.data.slice(3,6)
+        wildPokemonQuery.data
         .map((pokemon: Pokemon, index: number)=>{
           return <WildPokemon key={index} pokemon={pokemon} availableBalls={pokeBallCountQuery.data}/>
         })
