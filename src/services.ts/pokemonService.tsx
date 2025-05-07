@@ -24,7 +24,8 @@ export function usePokeBox() {
       )
       return await response.data
     },
-    staleTime: 60_000, 
+    staleTime: 60_000,
+    enabled: user.userid !== null
   })
 }
 
@@ -43,7 +44,8 @@ export function useWildPokemon() {
       )
       return await response.data
     },
-    staleTime: time.HOUR, 
+    staleTime: time.HOUR,
+    enabled: user.userid !== null
   })
 }
 
@@ -63,6 +65,7 @@ export function usePokeBallCount() {
       return await response.data
     },
     staleTime: time.HOUR,
+    enabled: user.userid !== null
   })
 }
 
@@ -84,12 +87,13 @@ export function useCatchPokemon() {
       }
     },
     onSuccess: (data) => {
-      toast.success(JSON.stringify(data.data.body))
+      console.log(data.data)
+      toast.success(data.data)
       queryClient.invalidateQueries({
         predicate: (query) => query.queryKey.every((key) => 
             ['pokeballs', 'pokebox'].includes(key as string)
         )
-    });
+      });
     },
   })
 }

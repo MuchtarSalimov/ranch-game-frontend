@@ -70,10 +70,9 @@ export default function RanchPokemon({ src, pokemon }: RanchPokemonProps) {
             delay: Math.random()*3,
         }}
           >
-            <img title={`lvl ${pokemon.level} ${pokemon.nickname? pokemon.nickname : pokemon.species}`}src={src} className={`max-w-[10vh] 2xl:max-w-[250px] shadow`}/>
+            <img title={`lvl ${pokemon.level} ${pokemon.nickname? pokemon.nickname : pokemon.species}`}src={src} className={`max-w-[10vh] 2xl:max-w-[200px] shadow`}/>
         </motion.section>
       </motion.div>
-
     )
   }
 }

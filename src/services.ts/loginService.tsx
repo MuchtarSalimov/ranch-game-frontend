@@ -53,8 +53,10 @@ export function useLogin() {
           window.localStorage.setItem('user', JSON.stringify({ username, userid, token}))
         }
         queryClient.invalidateQueries({
-          queryKey: ['pokemon', 'pokeballs', 'pokebox']
-        })
+          predicate: (query) => query.queryKey.every((key) => 
+              ['pokeballs', 'pokebox'].includes(key as string)
+          )
+        });
         toast.success(`login successful`)
       },
   })
