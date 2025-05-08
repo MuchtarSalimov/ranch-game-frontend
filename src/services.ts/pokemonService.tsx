@@ -24,8 +24,7 @@ export function usePokeBox() {
       )
       return await response.data
     },
-    staleTime: 60_000,
-    enabled: user.userid !== null
+    enabled: user.userid !== null,
   })
 }
 
@@ -44,7 +43,6 @@ export function useWildPokemon() {
       )
       return await response.data
     },
-    staleTime: time.HOUR,
     enabled: user.userid !== null
   })
 }
@@ -64,7 +62,6 @@ export function usePokeBallCount() {
       )
       return await response.data
     },
-    staleTime: time.HOUR,
     enabled: user.userid !== null
   })
 }
