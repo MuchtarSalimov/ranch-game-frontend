@@ -1,4 +1,4 @@
-import { Pokeball } from "./PokeBall";
+import { Pokeball } from "./Pokeball";
 import type {PropsWithChildren} from "react";
 
 interface AvailableBallsProps extends PropsWithChildren {

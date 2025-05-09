@@ -20,7 +20,7 @@ export function LoginForm() {
   const loginMutation = useLogin()
 
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, watch/* , formState: { errors }*/,
     } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = ({ username, password, remember }) =>{
     // call service to login and get token

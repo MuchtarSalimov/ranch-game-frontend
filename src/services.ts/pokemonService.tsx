@@ -4,7 +4,6 @@ import { toast } from "sonner";
 import { useContext } from "react";
 import type { AxiosError, AxiosRequestConfig } from "axios";
 import type { Pokemon } from "@/types/pokemon";
-import time from "@/lib/time"; 
 import { AuthContext } from "@/hooks/UserProvider";
 
 export const baseURL = 'http://localhost:3001/api';

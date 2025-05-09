@@ -21,7 +21,7 @@ export function SignupForm() {
   // register, handleSubmit, watch, formState: { errors },
 
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, watch/* , formState: { errors }*/,
     } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = ({ username, password, password2 }) =>{
     // call service to login and get token

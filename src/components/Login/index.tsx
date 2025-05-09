@@ -1,7 +1,7 @@
 import {   createContext, useState  } from "react";
 import "./style.css"
 import { SignupForm } from "./SignupForm";
-import { LoginForm } from "./loginForm";
+import { LoginForm } from "./LoginForm";
 import type { Dispatch, SetStateAction} from "react";
 
 export interface SignupContextInterface {
