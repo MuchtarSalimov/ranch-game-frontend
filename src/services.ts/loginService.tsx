@@ -6,7 +6,7 @@ import type { AxiosError  } from "axios";
 import type { LoginInfo } from "@/types/User";
 import { AuthContext } from "@/hooks/UserProvider";
 
-export const baseURL = 'http://localhost:3001/api';
+export const baseURL = '/api';
 
 export function useSignup() {
   return useMutation({

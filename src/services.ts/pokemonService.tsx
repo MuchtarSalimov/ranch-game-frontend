@@ -6,7 +6,7 @@ import type { AxiosError, AxiosRequestConfig } from "axios";
 import type { Pokemon } from "@/types/pokemon";
 import { AuthContext } from "@/hooks/UserProvider";
 
-export const baseURL = 'http://localhost:3001/api';
+export const baseURL = '/api';
 
 export function usePokeBox() {
   const { user } = useContext(AuthContext)
