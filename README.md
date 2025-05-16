@@ -1,4 +1,5 @@
-Frontend for a fun little game I made in React
+Backend for fun little game
 
+Currently deployed [here](https://ranch-game-backend.onrender.com/)
 
-more details coming later
+more details will come later
